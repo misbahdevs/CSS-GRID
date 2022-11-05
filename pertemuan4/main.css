@@ -1,0 +1,35 @@
+/* grid repeat() function */
+/* * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+main {
+  width: 60%;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100px);
+}
+.item {
+  background-color: salmon;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item:nth-child(even) {
+  background-color: blue;
+} */
+
+/* explisit & implisit
+  explisit adalah ketika kita secara jelas menuliskan ukuran kolom dan baris
+  
+  implisit ukuran di atur sama browser
+  */
+
+/* grid min-content & max-content */

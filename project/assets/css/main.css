@@ -1,0 +1,240 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-weight: 600;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 50px;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.container {
+  width: 100%;
+  margin: 5px auto;
+  display: grid;
+}
+
+/* header */
+header {
+  display: grid;
+  grid-template-areas:
+    "hero hero feature-1"
+    "hero hero feature-2";
+  gap: 5px;
+}
+.hero {
+  grid-area: hero;
+  min-height: 300px;
+  background-image: url(../img/hero-img.png);
+  background-position: top;
+}
+.hero > * {
+  display: none;
+}
+.features {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: rgb(17, 77, 38);
+}
+.feature-1 {
+  grid-area: feature-1;
+  background-image: url(../img/med-img.png);
+  background-size: cover;
+}
+.feature-2 {
+  grid-area: feature-2;
+  background-image: url(../img/med2-img.png);
+  background-size: cover;
+}
+nav {
+  order: -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 50px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+nav .brand a {
+  text-decoration: none;
+  color: rgb(15, 166, 133);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+nav .toggle {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px;
+}
+nav ul li {
+  padding: 10px;
+  background-color: rgb(15, 166, 133);
+  text-align: center;
+  cursor: pointer;
+}
+nav ul li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+/* service */
+#service {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+#service .box {
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(0, 0, 0, 0.1);
+}
+#service .box .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+#service .box h2 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#gallery {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 5px;
+}
+#gallery h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Responsive Breakpoint */
+@media screen and (max-width: 1024px) {
+  nav {
+    order: inherit;
+    grid-template-columns: 1fr;
+  }
+  nav .brand {
+    display: none;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+  }
+  .hero > * {
+    display: block;
+    background-color: rgb(15, 166, 133);
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 2px 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 20px;
+  }
+  nav {
+    order: -1;
+    justify-self: end;
+  }
+  nav .toggle {
+    display: block;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    border: 2px solid #ddd;
+  }
+  nav .toggle:focus {
+    border: 2px solid rgb(15, 166, 133);
+  }
+  nav .toggle:active {
+    border: 2px solid rgb(15, 166, 133);
+  }
+  nav .toggle i {
+    font-size: 2rem;
+    margin-top: -3px;
+    color: rgb(15, 166, 133);
+  }
+  nav ul {
+    position: fixed;
+    width: 80%;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    background-color: rgb(10, 107, 86);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+  }
+  nav ul.slide {
+    left: 0;
+    opacity: 1;
+  }
+  nav ul li {
+    margin-bottom: 30px;
+    border-radius: 0.2rem;
+    background-color: rgb(10, 107, 86);
+  }
+  nav ul li:hover {
+    background-color: rgb(15, 166, 133);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    margin: 10px;
+  }
+  header {
+    grid-template-areas:
+      "hero"
+      "feature-1"
+      "feature-2";
+  }
+  .features {
+    height: 150px;
+  }
+}
